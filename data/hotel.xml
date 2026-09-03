@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hotel>
+    <details>
+        <name>GrandStay International Hotel</name>
+        <location>Coimbatore, Tamil Nadu, India</location>
+        <rating>5</rating>
+        <checkIn>2:00 PM</checkIn>
+        <checkOut>12:00 PM</checkOut>
+        <phone>+91 98765 43210</phone>
+        <email>stay@grandstay.example</email>
+        <address>100 Grand Avenue, Coimbatore, Tamil Nadu, India</address>
+    </details>
+    <facilities>
+        <facility>24/7 Reception</facility>
+        <facility>Free Wi-Fi</facility>
+        <facility>Restaurant</facility>
+        <facility>Swimming Pool</facility>
+        <facility>Gym</facility>
+        <facility>Conference Hall</facility>
+        <facility>Parking</facility>
+        <facility>Room Service</facility>
+    </facilities>
+    <rooms>
+        <room>
+            <id>RM101</id>
+            <category>Normal</category>
+            <tariff>3000</tariff>
+            <capacity>2</capacity>
+            <availability>Available</availability>
+            <bed>1 King Bed</bed>
+            <view>Garden View</view>
+            <facilities><item>Free Wi-Fi</item><item>Breakfast</item></facilities>
+        </room>
+        <room>
+            <id>PR201</id>
+            <category>Premium</category>
+            <tariff>5000</tariff>
+            <capacity>2</capacity>
+            <availability>Available</availability>
+            <bed>King Bed</bed>
+            <view>City View</view>
+            <facilities><item>Breakfast</item><item>Mini Bar</item><item>Free Wi-Fi</item></facilities>
+        </room>
+        <room>
+            <id>LX301</id>
+            <category>Luxury</category>
+            <tariff>8000</tariff>
+            <capacity>3</capacity>
+            <availability>Available</availability>
+            <bed>King Bed</bed>
+            <view>Premium View</view>
+            <facilities><item>Breakfast</item><item>Mini Bar</item><item>Room Service</item><item>Bathtub</item><item>Free Wi-Fi</item></facilities>
+        </room>
+        <room>
+            <id>ST401</id>
+            <category>5-Star Suite</category>
+            <tariff>15000</tariff>
+            <capacity>4</capacity>
+            <availability>Available</availability>
+            <bed>King Bed + Living Room</bed>
+            <view>Premium City View</view>
+            <facilities><item>Complimentary Breakfast</item><item>Mini Bar</item><item>Bathtub</item><item>24/7 Room Service</item><item>Executive Lounge Access</item><item>Free Wi-Fi</item></facilities>
+        </room>
+    </rooms>
+</hotel>

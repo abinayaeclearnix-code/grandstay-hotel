@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking | GrandStay</title><link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="booking">
+<header class="site-header"><div class="container nav-wrap">
+<a class="brand" href="index.html"><span class="brand-mark">G</span><span>GrandStay</span></a><button class="menu-toggle" aria-label="Toggle navigation">☰</button>
+<nav class="nav-links"><a href="index.html">Home</a><a href="rooms.html">Rooms</a><a href="tariff.html">Tariff</a><a class="active" href="booking.html">Booking</a><a href="customers.html">Customers</a></nav>
+</div></header>
+<main>
+<section class="page-banner"><div class="container"><p class="eyebrow">RESERVATION</p><h1>Plan your stay</h1><p>Complete the form to calculate your estimated room cost.</p></div></section>
+<section class="section"><div class="container booking-layout">
+<form id="booking-form" class="form-card" novalidate>
+<h2>Guest & Stay Details</h2>
+<div id="form-message" class="form-message" role="alert" aria-live="polite"></div>
+<div class="form-grid">
+<div class="field"><label for="customer-name">Customer Name *</label><input id="customer-name" name="customerName" type="text" required placeholder="Enter full name"></div>
+<div class="field"><label for="email">Email *</label><input id="email" name="email" type="email" required placeholder="name@example.com"></div>
+<div class="field"><label for="phone">Phone *</label><input id="phone" name="phone" type="tel" required pattern="[0-9+() -]{7,20}" placeholder="+91 98765 43210"></div>
+<div class="field"><label for="room-category">Room Category *</label><select id="room-category" name="roomCategory" required><option value="">Select room</option></select></div>
+<div class="field"><label for="check-in">Check-in *</label><input id="check-in" name="checkIn" type="date" required></div>
+<div class="field"><label for="check-out">Check-out *</label><input id="check-out" name="checkOut" type="date" required></div>
+<div class="field"><label for="guests">Number of Guests *</label><input id="guests" name="guests" type="number" min="1" max="4" value="1" required></div>
+<div class="field full"><label for="request">Special Request</label><textarea id="request" name="request" rows="3" placeholder="Any special request?"></textarea></div>
+</div>
+<div class="estimate"><span>Estimated Room Cost</span><strong id="estimated-cost">₹0</strong><small id="stay-summary">Select room and dates to calculate.</small></div>
+<button class="btn btn-primary full-btn" type="submit">Confirm Booking</button>
+</form>
+<aside class="booking-side"><div class="side-card"><p class="eyebrow">GRANDSTAY</p><h2>Comfort for every journey.</h2><ul><li>✓ Free Wi-Fi</li><li>✓ Breakfast options</li><li>✓ 24/7 reception</li><li>✓ Room service</li><li>✓ Secure parking</li></ul></div></aside>
+</div></section>
+</main>
+<footer class="footer"><div class="container"><strong>GrandStay International Hotel</strong><span>Sample booking · No real payment</span></div></footer>
+<script src="js/script.js"></script>
+</body>
+</html>
