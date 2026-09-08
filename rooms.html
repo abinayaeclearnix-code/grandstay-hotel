@@ -2,24 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rooms | GrandStay</title><link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="Explore refined rooms and suites at Grandstay Hotel.">
+  <meta name="theme-color" content="#17221D">
+  <title>Rooms | Grandstay Hotel</title><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="favicon.svg"><link rel="stylesheet" href="css/style.css">
 </head>
 <body data-page="rooms">
 <header class="site-header"><div class="container nav-wrap">
-<a class="brand" href="index.html"><span class="brand-mark">G</span><span>GrandStay</span></a>
-<button class="menu-toggle" aria-label="Toggle navigation">☰</button>
-<nav class="nav-links"><a href="index.html">Home</a><a class="active" href="rooms.html">Rooms</a><a href="tariff.html">Tariff</a><a href="booking.html">Booking</a><a href="customers.html">Customers</a></nav>
+<a class="brand" href="index.html"><span class="brand-mark">G</span><span>GRANDSTAY <small>LUXURY HOTEL</small></span></a>
+<button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+<nav class="nav-links"><a href="index.html">Home</a><a class="active" href="rooms.html">Rooms</a><a href="tariff.html">Tariff</a><a href="booking.html">Booking</a><a href="customers.html">Reservations</a><a class="nav-book" href="booking.html">Book Now</a></nav>
 </div></header>
+<div class="app-loader" aria-label="Loading Grandstay Hotel"><div class="loader-mark">G</div><strong>GRANDSTAY</strong><span>Preparing your stay...</span></div>
 <main>
 <section class="page-banner"><div class="container"><p class="eyebrow">ROOM COLLECTION</p><h1>Find your perfect room</h1><p>Choose the comfort level that matches your stay.</p></div></section>
 <section class="section"><div class="container">
 <div class="filter-bar" id="room-filters" aria-label="Room filters">
 <button class="filter-btn active" data-filter="All">All</button><button class="filter-btn" data-filter="Normal">Normal</button><button class="filter-btn" data-filter="Premium">Premium</button><button class="filter-btn" data-filter="Luxury">Luxury</button><button class="filter-btn" data-filter="5-Star Suite">5-Star Suite</button>
 </div>
+<div class="rooms-toolbar"><input class="room-search" id="room-search" type="search" placeholder="Search rooms or amenities" aria-label="Search rooms or amenities"><select id="room-sort" aria-label="Sort rooms"><option value="default">Sort rooms</option><option value="low">Price: Low to High</option><option value="high">Price: High to Low</option><option value="capacity">Most Guests</option></select></div>
 <div id="rooms-grid" class="room-grid"><div class="loading">Loading room information…</div></div>
 </div></section>
 </main>
-<footer class="footer"><div class="container"><strong>GrandStay International Hotel</strong><span>★★★★★ 5-Star Hospitality</span></div></footer>
-<script src="js/script.js"></script>
+<footer class="footer"><div class="container footer-grid"><div><strong>GRANDSTAY HOTEL</strong><p>Where Luxury Feels Like Home</p></div><div><b>Explore</b><a href="rooms.html">Rooms</a><a href="tariff.html">Tariff</a><a href="booking.html">Booking</a></div><div><b>Contact</b><span>+91 98765 43210</span><span>stay@grandstay.example</span><span>Coimbatore, Tamil Nadu</span></div><div><b>Follow</b><span class="footer-social">Instagram · Facebook · X</span></div></div><div class="container footer-bottom"><span>© 2026 Grandstay Hotel</span><span>★★★★★ 5-Star Hospitality</span></div></footer>
+<script src="js/script.js?v=4"></script>
 </body>
 </html>

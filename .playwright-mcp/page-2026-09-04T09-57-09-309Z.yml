@@ -1,0 +1,112 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "A AMAIRA HOTEL" [ref=e4] [cursor=pointer]:
+        - /url: index.html
+        - generic [ref=e5]: A
+        - generic [ref=e6]: AMAIRA HOTEL
+      - navigation "Main navigation" [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: index.html
+        - link "Rooms" [ref=e9] [cursor=pointer]:
+          - /url: rooms.html
+        - link "Tariff" [ref=e10] [cursor=pointer]:
+          - /url: tariff.html
+        - link "Booking" [ref=e11] [cursor=pointer]:
+          - /url: booking.html
+        - link "Reservations" [ref=e12] [cursor=pointer]:
+          - /url: customers.html
+  - main [ref=e13]:
+    - generic [ref=e15]:
+      - paragraph [ref=e16]: ★★★★★ 5-STAR HOSPITALITY
+      - heading "Where Elegance Meets Comfort" [level=1] [ref=e17]
+      - paragraph [ref=e18]: Discover refined stays, exceptional service and unforgettable moments at AMAIRA HOTEL.
+      - generic [ref=e19]:
+        - link "Explore Rooms" [ref=e20] [cursor=pointer]:
+          - /url: rooms.html
+        - link "Book Your Stay" [ref=e21] [cursor=pointer]:
+          - /url: booking.html
+    - generic [ref=e23]:
+      - article [ref=e24]:
+        - generic [ref=e25]: ★
+        - strong [ref=e26]: 5-Star
+        - generic [ref=e27]: Hotel Rating
+      - article [ref=e28]:
+        - generic [ref=e29]: 24/7
+        - strong [ref=e30]: 24/7
+        - generic [ref=e31]: Room Service
+      - article [ref=e32]:
+        - generic [ref=e33]: "4"
+        - strong [ref=e34]: "4"
+        - generic [ref=e35]: Room Categories
+      - article [ref=e36]:
+        - generic [ref=e37]: ♥
+        - strong [ref=e38]: 100%
+        - generic [ref=e39]: Guest Comfort
+    - generic [ref=e41]:
+      - generic [ref=e42]:
+        - generic [ref=e43]:
+          - paragraph [ref=e44]: THE AMAIRA EXPERIENCE
+          - heading "Everything you need for a memorable stay" [level=2] [ref=e45]
+        - link "View tariff →" [ref=e46] [cursor=pointer]:
+          - /url: tariff.html
+      - generic [ref=e47]:
+        - article [ref=e48]:
+          - text: ⌂
+          - heading "Prime Location" [level=3] [ref=e49]
+          - paragraph [ref=e50]: Conveniently located in Coimbatore, Tamil Nadu with easy access to the city.
+        - article [ref=e51]:
+          - text: ♨
+          - heading "Premium Comfort" [level=3] [ref=e52]
+          - paragraph [ref=e53]: Thoughtfully designed rooms with modern amenities for every type of traveller.
+        - article [ref=e54]:
+          - text: ✦
+          - heading "Exceptional Service" [level=3] [ref=e55]
+          - paragraph [ref=e56]: Friendly hospitality, 24/7 reception and attentive room service.
+        - article [ref=e57]:
+          - text: ♨
+          - heading "Complete Facilities" [level=3] [ref=e58]
+          - paragraph [ref=e59]: Enjoy our restaurant, swimming pool, gym, conference hall and parking.
+    - generic [ref=e61]:
+      - generic [ref=e63]:
+        - paragraph [ref=e64]: HOTEL FACILITIES
+        - heading "Everything you need" [level=2] [ref=e65]
+      - generic [ref=e66]:
+        - article [ref=e67]:
+          - text: 🍽️
+          - heading "Restaurant" [level=3] [ref=e68]
+          - paragraph [ref=e69]: Enjoy delicious meals throughout your stay.
+        - article [ref=e70]:
+          - text: 🏊
+          - heading "Swimming Pool" [level=3] [ref=e71]
+          - paragraph [ref=e72]: Relax and refresh in our swimming pool.
+        - article [ref=e73]:
+          - text: 🏋️
+          - heading "Fitness Center" [level=3] [ref=e74]
+          - paragraph [ref=e75]: Stay active with our modern gym facilities.
+        - article [ref=e76]:
+          - text: 🚗
+          - heading "Parking" [level=3] [ref=e77]
+          - paragraph [ref=e78]: Convenient parking for our guests.
+    - generic [ref=e80]:
+      - generic [ref=e81]:
+        - paragraph [ref=e82]: ABOUT THE HOTEL
+        - heading "Stay where comfort meets luxury." [level=2] [ref=e83]
+        - paragraph [ref=e84]: AMAIRA HOTEL is a fictional 5-star hospitality experience built with HTML, CSS, Vanilla JavaScript and XML.
+      - generic [ref=e85]:
+        - paragraph [ref=e86]:
+          - strong [ref=e87]: Check-in
+          - generic [ref=e88]: 2:00 PM
+        - paragraph [ref=e89]:
+          - strong [ref=e90]: Check-out
+          - generic [ref=e91]: 12:00 PM
+        - paragraph [ref=e92]:
+          - strong [ref=e93]: Location
+          - generic [ref=e94]: Coimbatore, Tamil Nadu
+        - paragraph [ref=e95]:
+          - strong [ref=e96]: Contact
+          - generic [ref=e97]: +91 98765 43210
+  - contentinfo [ref=e98]:
+    - generic [ref=e99]:
+      - strong [ref=e100]: AMAIRA HOTEL
+      - generic [ref=e101]: Coimbatore, Tamil Nadu, India · Where Elegance Meets Comfort

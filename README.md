@@ -1,10 +1,12 @@
-# GrandStay Hotel Management System
+# GRANDSTAY HOTEL
 
 A beginner-friendly, professionally structured Hotel Management frontend demonstration built using **HTML5, CSS3, Vanilla JavaScript and XML**.
 
+Tagline: **Where Luxury Feels Like Home**
+
 ## Features
 
-- 5-star fictional hotel dashboard
+- 5-star fictional hotel booking experience
 - Normal, Premium, Luxury and 5-Star Suite room categories
 - XML-driven hotel and room data
 - Dynamic room rendering

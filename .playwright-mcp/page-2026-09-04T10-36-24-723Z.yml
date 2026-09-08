@@ -1,0 +1,105 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "A AMAIRA HOTEL" [ref=e4] [cursor=pointer]:
+        - /url: index.html
+        - generic [ref=e5]: A
+        - generic [ref=e6]: AMAIRA HOTEL
+      - button "Toggle navigation" [ref=e7] [cursor=pointer]: ☰
+  - main [ref=e8]:
+    - generic [ref=e10]:
+      - paragraph [ref=e11]: ROOM COLLECTION
+      - heading "Find your perfect room" [level=1] [ref=e12]
+      - paragraph [ref=e13]: Choose the comfort level that matches your stay.
+    - generic [ref=e15]:
+      - generic "Room filters" [ref=e16]:
+        - button "All" [ref=e17] [cursor=pointer]
+        - button "Normal" [ref=e18] [cursor=pointer]
+        - button "Premium" [ref=e19] [cursor=pointer]
+        - button "Luxury" [ref=e20] [cursor=pointer]
+        - button "5-Star Suite" [ref=e21] [cursor=pointer]
+      - generic [ref=e22]:
+        - article [ref=e23]:
+          - generic [ref=e24]:
+            - generic [ref=e25]:
+              - generic [ref=e26]: RM101
+              - heading "Normal" [level=2] [ref=e27]
+            - generic [ref=e28]: ₹3,000 / night
+          - generic [ref=e29]:
+            - generic [ref=e30]:
+              - generic [ref=e31]: 👤 2 Guests
+              - generic [ref=e32]: 🛏 1 King Bed
+              - generic [ref=e33]: ⌂ Garden View
+            - generic [ref=e34]:
+              - generic [ref=e35]: Free Wi-Fi
+              - generic [ref=e36]: Breakfast
+            - generic [ref=e37]:
+              - generic [ref=e38]: ● Available
+              - link "Book Now" [ref=e39] [cursor=pointer]:
+                - /url: booking.html?room=Normal
+        - article [ref=e40]:
+          - generic [ref=e41]:
+            - generic [ref=e42]:
+              - generic [ref=e43]: PR201
+              - heading "Premium" [level=2] [ref=e44]
+            - generic [ref=e45]: ₹5,000 / night
+          - generic [ref=e46]:
+            - generic [ref=e47]:
+              - generic [ref=e48]: 👤 2 Guests
+              - generic [ref=e49]: 🛏 King Bed
+              - generic [ref=e50]: ⌂ City View
+            - generic [ref=e51]:
+              - generic [ref=e52]: Breakfast
+              - generic [ref=e53]: Mini Bar
+              - generic [ref=e54]: Free Wi-Fi
+            - generic [ref=e55]:
+              - generic [ref=e56]: ● Available
+              - link "Book Now" [ref=e57] [cursor=pointer]:
+                - /url: booking.html?room=Premium
+        - article [ref=e58]:
+          - generic [ref=e59]:
+            - generic [ref=e60]:
+              - generic [ref=e61]: LX301
+              - heading "Luxury" [level=2] [ref=e62]
+            - generic [ref=e63]: ₹8,000 / night
+          - generic [ref=e64]:
+            - generic [ref=e65]:
+              - generic [ref=e66]: 👤 3 Guests
+              - generic [ref=e67]: 🛏 King Bed
+              - generic [ref=e68]: ⌂ Premium View
+            - generic [ref=e69]:
+              - generic [ref=e70]: Breakfast
+              - generic [ref=e71]: Mini Bar
+              - generic [ref=e72]: Room Service
+              - generic [ref=e73]: Bathtub
+              - generic [ref=e74]: Free Wi-Fi
+            - generic [ref=e75]:
+              - generic [ref=e76]: ● Available
+              - link "Book Now" [ref=e77] [cursor=pointer]:
+                - /url: booking.html?room=Luxury
+        - article [ref=e78]:
+          - generic [ref=e79]:
+            - generic [ref=e80]:
+              - generic [ref=e81]: ST401
+              - heading "5-Star Suite" [level=2] [ref=e82]
+            - generic [ref=e83]: ₹15,000 / night
+          - generic [ref=e84]:
+            - generic [ref=e85]:
+              - generic [ref=e86]: 👤 4 Guests
+              - generic [ref=e87]: 🛏 King Bed + Living Room
+              - generic [ref=e88]: ⌂ Premium City View
+            - generic [ref=e89]:
+              - generic [ref=e90]: Complimentary Breakfast
+              - generic [ref=e91]: Mini Bar
+              - generic [ref=e92]: Bathtub
+              - generic [ref=e93]: 24/7 Room Service
+              - generic [ref=e94]: Executive Lounge Access
+              - generic [ref=e95]: Free Wi-Fi
+            - generic [ref=e96]:
+              - generic [ref=e97]: ● Available
+              - link "Book Now" [ref=e98] [cursor=pointer]:
+                - /url: booking.html?room=5-Star%20Suite
+  - contentinfo [ref=e99]:
+    - generic [ref=e100]:
+      - strong [ref=e101]: AMAIRA HOTEL
+      - generic [ref=e102]: ★★★★★ 5-Star Hospitality
