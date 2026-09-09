@@ -39,7 +39,7 @@
         if (!link || link.origin !== window.location.origin) return;
         event.preventDefault();
         document.body.classList.add("page-leaving");
-        window.setTimeout(() => { window.location.href = link.href; }, 220);
+        window.setTimeout(() => { window.location.href = link.href; }, 80);
       });
     }
   }
@@ -301,10 +301,17 @@
     const guests = adults + children;
     const checkIn = $("#check-in").value;
     const checkOut = $("#check-out").value;
+    const phone = $("#phone").value.trim();
 
     if (!form.checkValidity()) {
       showFormMessage("Please complete all required fields with valid information.", "error");
       form.reportValidity();
+      return;
+    }
+
+    if (!/^[0-9+()\- ]{7,20}$/.test(phone)) {
+      showFormMessage("Please enter a valid phone number.", "error");
+      $("#phone").focus();
       return;
     }
 
@@ -345,31 +352,84 @@
       children,
       rooms,
       request: $("#request").value.trim(),
-      status: "Confirmed",
+      status: "Payment Pending",
+      payment: { status: "Pending", method: "Demo payment", transactionId: "Pending" },
       createdAt: new Date().toISOString()
     };
 
-    const bookings = JSON.parse(localStorage.getItem("grandstayBookings") || localStorage.getItem("amairaBookings") || "[]");
-    bookings.unshift(booking);
-    localStorage.setItem("grandstayBookings", JSON.stringify(bookings));
-
-    showFormMessage(`Reservation ${booking.id} confirmed for ${booking.customerName}. Estimated cost: ${formatCurrency(booking.amount)}.`, "success");
-    showConfirmation(booking);
-    form.reset();
-    $("#estimated-cost").textContent = "₹0";
-    $("#stay-summary").textContent = "Booking saved. You can view it on the Reservations page.";
+    const bookings = getBookingStore();
+    bookings.records.unshift(booking);
+    saveBookingStore(bookings);
+    showFormMessage("Booking details saved. Complete the demo payment to confirm your reservation.", "success");
+    showPaymentBar(booking, form);
   }
 
-  function showConfirmation(booking) {
+  function getBookingStore() {
+    const raw = localStorage.getItem("grandstayBookings") || localStorage.getItem("amairaBookings");
+    if (!raw) return { version: 2, updatedAt: new Date().toISOString(), records: [] };
+    try {
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? { version: 2, updatedAt: new Date().toISOString(), records: parsed } : parsed;
+    } catch (error) {
+      console.warn("Booking storage was reset because it was invalid.", error);
+      return { version: 2, updatedAt: new Date().toISOString(), records: [] };
+    }
+  }
+
+  function saveBookingStore(store) {
+    store.version = 2;
+    store.updatedAt = new Date().toISOString();
+    localStorage.setItem("grandstayBookings", JSON.stringify(store));
+  }
+
+  function showPaymentBar(booking, form) {
+    const bar = $("#payment-bar");
+    if (!bar) return;
+    bar.hidden = false;
+    const updatePayment = (status) => {
+      const store = getBookingStore();
+      const saved = store.records.find(record => record.id === booking.id);
+      if (!saved) return;
+      const succeeded = status === "Success";
+      saved.status = succeeded ? "Confirmed" : "Payment Failed";
+      saved.payment = { status, method: "Demo payment", transactionId: `DEMO-${Date.now().toString().slice(-8)}`, paidAt: new Date().toISOString() };
+      saveBookingStore(store);
+      bar.hidden = true;
+      showFormMessage(succeeded ? `Reservation ${booking.id} confirmed for ${booking.customerName}.` : `Payment failed for ${booking.id}. Your booking remains saved for review.`, succeeded ? "success" : "error");
+      showConfirmation(saved, succeeded);
+      if (succeeded) {
+        form.reset();
+        $("#estimated-cost").textContent = "₹0";
+        $("#stay-summary").textContent = "Booking saved. You can view it on the Reservations page.";
+      }
+    };
+    const successButton = $("#payment-success");
+    const failureButton = $("#payment-failure");
+    if (successButton) successButton.onclick = () => updatePayment("Success");
+    if (failureButton) failureButton.onclick = () => updatePayment("Failed");
+  }
+
+  function showConfirmation(booking, succeeded = true) {
     const confirmation = $("#confirmation");
     if (!confirmation) return;
-    $("#confirmation-name").textContent = booking.customerName;
+    confirmation.classList.toggle("confirmation-failed", !succeeded);
+    $("#confirmation-mark").textContent = succeeded ? "✓" : "!";
+    $("#confirmation-title").textContent = succeeded ? "Your stay is confirmed" : "Payment was not completed";
+    $("#confirmation-message").innerHTML = succeeded
+      ? `Thank you for choosing Grandstay Hotel, <strong id="confirmation-name">${escapeHtml(booking.customerName)}</strong>. Your stay has been reserved.`
+      : `Your booking details are saved, but payment for <strong>${escapeHtml(booking.id)}</strong> was not completed. You can review it in Reservations and try again.`;
+    const confirmationName = $("#confirmation-name");
+    if (confirmationName) confirmationName.textContent = booking.customerName;
     $("#confirmation-id").textContent = booking.id;
     $("#confirmation-room").textContent = booking.room;
     $("#confirmation-stay").textContent = `${formatDate(booking.checkIn)} - ${formatDate(booking.checkOut)}`;
     $("#confirmation-total").textContent = formatCurrency(booking.amount);
-    $("#download-confirmation")?.addEventListener("click", () => downloadConfirmation(booking), { once: true });
-    $("#print-confirmation")?.addEventListener("click", () => window.print());
+    $("#download-confirmation").hidden = !succeeded;
+    $("#print-confirmation").hidden = !succeeded;
+    const downloadButton = $("#download-confirmation");
+    const printButton = $("#print-confirmation");
+    if (downloadButton) downloadButton.onclick = succeeded ? () => downloadConfirmation(booking) : null;
+    if (printButton) printButton.onclick = succeeded ? () => window.print() : null;
     confirmation.hidden = false;
     confirmation.scrollIntoView({ behavior: "smooth", block: "start" });
   }
@@ -379,14 +439,17 @@
       "GRANDSTAY HOTEL", "Where Luxury Feels Like Home", "", "RESERVATION CONFIRMED",
       `Reservation ID: ${booking.id}`, `Guest: ${booking.customerName}`, `Room: ${booking.room}`,
       `Stay: ${formatDate(booking.checkIn)} - ${formatDate(booking.checkOut)}`, `Guests: ${booking.guests}`,
-      `Total: ${formatCurrency(booking.amount)}`
+      `Total: ${formatCurrency(booking.amount)}`, "", "PAYMENT DETAILS",
+      `Payment status: ${booking.payment?.status || booking.status}`, `Payment method: ${booking.payment?.method || "Not recorded"}`,
+      `Transaction ID: ${booking.payment?.transactionId || "Not recorded"}`
     ].join("\n");
-    const blob = new Blob([content], { type: "text/plain" });
     const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
+    link.href = `data:text/plain;charset=utf-8,${encodeURIComponent(content)}`;
     link.download = `${booking.id}-grandstay-confirmation.txt`;
+    link.style.display = "none";
+    document.body.appendChild(link);
     link.click();
-    URL.revokeObjectURL(link.href);
+    link.remove();
   }
 
   function showFormMessage(text, type) {
@@ -409,7 +472,8 @@
     const empty = $("#empty-bookings");
     if (!body) return;
 
-    const bookings = JSON.parse(localStorage.getItem("grandstayBookings") || localStorage.getItem("amairaBookings") || "[]");
+    const stored = getBookingStore();
+    const bookings = stored.records || [];
     const filtered = bookings.filter(b => {
       const haystack = `${b.id} ${b.customerName} ${b.room}`.toLowerCase();
       return haystack.includes(query);
@@ -424,7 +488,8 @@
       <td>${formatDate(b.checkOut)}</td>
       <td>${b.guests || 1}</td>
       <td class="money">${formatCurrency(b.amount)}</td>
-      <td><span class="status">${escapeHtml(b.status)}</span></td>
+      <td><span class="status">${escapeHtml(b.status || "Confirmed")}</span></td>
+      <td><span class="status ${b.payment?.status === "Failed" ? "payment-status-failed" : ""}">${escapeHtml(b.payment?.status || "Not recorded")}</span></td>
     </tr>`).join("");
 
     if (empty) empty.hidden = filtered.length > 0;

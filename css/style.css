@@ -227,3 +227,27 @@ h1,h2,h3,.hero h1,.page-banner h1{font-family:'Bodoni Moda',Georgia,serif}
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 @media(max-width:850px){.hero-search{grid-template-columns:1fr 1fr;bottom:-88px}.hero-search .btn{min-height:44px}.home-intro{padding-top:168px}.offer-grid,.review-grid{grid-template-columns:1fr 1fr}.rooms-toolbar{align-items:stretch;flex-direction:column}.rooms-toolbar .room-search,.rooms-toolbar select{max-width:none}}
 @media(max-width:560px){.hero-search{grid-template-columns:1fr;padding:8px;bottom:-190px}.hero-search .btn{min-height:48px}.home-intro{padding-top:252px}.offer-grid,.review-grid,.addon-grid{grid-template-columns:1fr}.toast{right:12px;bottom:12px;left:12px}.hero p:not(.eyebrow){font-size:1.28rem}}
+
+/* Brand assets, page imagery and payment states */
+.brand-logo{width:42px;height:42px;object-fit:contain;flex:none;filter:drop-shadow(0 5px 10px rgba(23,34,29,.14))}.brand-mark{display:none}
+.hero{background-image:linear-gradient(105deg,rgba(23,34,29,.94),rgba(23,34,29,.68) 55%,rgba(23,34,29,.22)),url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=85')}
+.page-banner{background-image:linear-gradient(105deg,rgba(248,246,240,.94),rgba(216,226,216,.72)),url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1800&q=80');background-size:cover;background-position:center}
+.payment-bar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:18px;padding:16px 18px;border:1px solid rgba(198,161,91,.45);background:rgba(248,246,240,.92);box-shadow:0 12px 30px rgba(23,34,29,.1)}.payment-bar[hidden]{display:none}.payment-bar>div:first-child{display:grid;gap:2px}.payment-bar span{color:var(--text-muted);font-size:.78rem}.payment-actions{display:flex;gap:8px}.payment-actions .btn{padding:10px 14px}.payment-bar .btn-outline{color:var(--forest);border-color:var(--forest)}
+.payment-failed{border-color:rgba(166,75,75,.42);background:#fff5f4}.payment-failed strong{color:var(--error)}
+.payment-status-failed{background:rgba(166,75,75,.1);color:var(--error);border-color:rgba(166,75,75,.2)}
+@media(max-width:560px){.payment-bar{align-items:stretch;flex-direction:column}.payment-actions{display:grid;grid-template-columns:1fr 1fr}.payment-actions .btn{padding-inline:8px}}
+
+/* Accessibility and layout corrections */
+:root{--text:#20231f;--text-muted:#5d625c;--warm-gray:#5d625c}
+.hero{background-image:linear-gradient(105deg,rgba(23,34,29,.97),rgba(23,34,29,.8) 55%,rgba(23,34,29,.48)),url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2200&q=85')}
+.page-banner{background-image:linear-gradient(105deg,rgba(248,246,240,.98),rgba(216,226,216,.9)),url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1800&q=80')}
+.hero-search{grid-template-columns:1.1fr 1.1fr .8fr 1.1fr 170px;background:rgba(255,255,255,.96)}
+.hero-search .btn{min-width:0;white-space:nowrap;padding-inline:12px}
+.stat-icon{font-size:1.65rem;line-height:1.15}
+.feature-card>span{width:52px;height:52px;font-size:1.55rem}
+.feature-card,.stat-card,.room-card,.form-card,.info-panel,.table-wrap{background:rgba(255,253,249,.92);color:var(--text)}
+.confirmation-failed{background:linear-gradient(145deg,#552f2f,#7b4740)!important}
+.confirmation-failed .confirmation-mark{border-color:#f0b2a8;color:#ffd0c8}
+.confirmation-failed .eyebrow{color:#ffd0c8}
+@media(max-width:850px){.hero-search{grid-template-columns:1fr 1fr}.hero-search .btn{grid-column:1/-1}}
+@media(max-width:560px){.hero-search{grid-template-columns:1fr}.hero-search .btn{grid-column:auto}}

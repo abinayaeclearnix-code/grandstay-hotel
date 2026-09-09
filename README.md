@@ -21,6 +21,9 @@ Tagline: **Where Luxury Feels Like Home**
 - Responsive desktop, tablet and mobile layout
 - Accessible semantic HTML and form labels
 - Error handling for XML loading/parsing
+- Grandstay brand mark and image-backed page banners
+- Versioned local booking records with payment status tracking
+- Demo payment success/failure states and payment-aware receipts
 
 ## Technologies
 
@@ -55,7 +58,7 @@ grandstay-hotel/
 
 - **HTML** provides the page structure, forms, navigation, tables and content containers.
 - **CSS** controls the premium hotel visual design, responsive layout, cards, forms and tables.
-- **JavaScript** loads XML, parses the data with `DOMParser`, renders room/tariff content, validates bookings, calculates costs, filters/searches data and stores bookings in `localStorage`.
+- **JavaScript** loads XML, parses the data with `DOMParser`, renders room/tariff content, validates bookings, calculates costs, filters/searches data and stores versioned bookings in `localStorage`.
 - **XML** acts as the simple data source for hotel details and room information.
 
 ## How to Run
@@ -99,6 +102,18 @@ This project demonstrates:
 ## Important Note
 
 This is a frontend learning/demo application. It has **no real backend, database, authentication or payment processing**. Booking records are stored only in the browser's localStorage.
+
+Booking storage uses the following shape:
+
+```json
+{
+    "version": 2,
+    "updatedAt": "ISO timestamp",
+    "records": [{ "status": "Confirmed", "payment": { "status": "Success" } }]
+}
+```
+
+The payment buttons are intentionally simulated. A receipt downloads as a plain-text file containing booking and payment details only.
 
 ## Git Practice
 
